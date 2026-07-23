@@ -1,1 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Majai Pastries | Premium Artisan Bakery</title>
 
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+    <div class="logo">
+        <img src="images/LOGO.jpg" alt="Majai Pastries Logo">
+        <h2>Majai Pastries</h2>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#cakes">Cakes</a>
+        <a href="#menu">Menu</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+
+        <button id="cartBtn">
+            🛒 Cart <span id="cart-count">0</span>
+        </button>
+    </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section id="home" class="hero">
+    <div class="hero-text">
+        <h1>Freshly Baked Every Day</h1>
+
+        <p>
+            Handcrafted Cakes • Artisan Bread • Premium Pastries
+        </p>
+
+        <p class="tagline">
+            Made Fresh. Made Beautiful. Made for Every Celebration.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#cakes" class="button">Order Custom Cake</a>
+
+            <a href="https://www.facebook.com/majai42"
+               target="_blank"
+               class="button secondary">
+               Visit Facebook
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ================= CAKE BUILDER ================= -->
+
+<section id="cakes">
+
+    <h2>🎂 Customized Cakes</h2>
+    <div class="divider"></div>
+
+    <div class="cake-builder">
+
+        <div class="cake-image">
+            <img src="images/customized-cake.jpg" alt="Customized Cake">
+        </div>
+
+        <div class="cake-form">
+
+            <label>Cake Type</label>
+            <select id="cakeType">
+                <option>Birthday Cake</option>
+                <option>Wedding Cake</option>
+                <option>Christening Cake</option>
+                <option>Anniversary Cake</option>
+                <option>Bento Cake</option>
+                <option>Money Cake</option>
+                <option>Number Cake</option>
+                <option>Photo Cake</option>
+            </select>
+
+            <label>Cake Size</label>
+            <select id="cakeSize">
+                <option>6 inches</option>
+                <option>8 inches</option>
+                <option>10 inches</option>
+                <option>2 Tier</option>
+                <option>3 Tier</option>
+            </select>
+
+            <label>Cake Flavor</label>
+            <select id="cakeFlavor">
+                <option>Chocolate</option>
+                <option>Vanilla</option>
+                <option>Red Velvet</option>
+                <option>Mocha</option>
+                <option>Ube</option>
+                <option>Mango</option>
+            </select>
+
+            <label>Dedication</label>
+            <input type="text" id="cakeDedication" placeholder="Happy Birthday Maria">
+
+            <label>Date Needed</label>
+            <input type="date" id="cakeDate">
+
+            <label>Special Instructions</label>
+            <textarea id="cakeNotes" placeholder="Please describe your preferred design..."></textarea>
+
+            <button class="button full" id="requestQuote">
+                Request Quotation
+            </button>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= MENU ================= -->
+
+<section id="menu">
+
+    <h2>Our Artisan Menu</h2>
+    <div class="divider"></div>
+
+    <div class="products">
+
+        <!-- DONUTS -->
+        <div class="product">
+            <div class="ribbon">BEST SELLER</div>
+
+            <img id="donutImage" src="images/chocolate-donut.jpg" alt="Artisan Donuts">
+
+            <div class="product-content">
+                <div class="category-title">Premium Pastries</div>
+
+                <h3>🍩 Artisan Donuts</h3>
+
+                <p>Soft, fluffy, and freshly fried artisan donuts.</p>
+
+                <select id="donutFlavor" onchange="changeDonutImage()">
+                    <option value="classic">Classic</option>
+                    <option value="chocolate" selected>Chocolate</option>
+                    <option value="strawberry">Strawberry</option>
+                    <option value="ube">Ube</option>
+                    <option value="mango">Mango</option>
+                </select>
+
+                <div class="quantity">
+                    <label>Quantity</label>
+                    <input type="number" id="donutQty" value="1" min="1">
+                </div>
+
+                <div class="price">
+                    <h4>₱60</h4>
+                </div>
+
+                <button onclick="addDonut()">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- ENSAYMADA -->
+        <div class="product">
+            <img id="ensaymadaImage" src="images/classic-cheese.jpg" alt="Ensaymada">
+
+            <div class="product-content">
+                <div class="category-title">Soft Bread</div>
+
+                <h3>🧈 Ensaymada</h3>
+
+                <p>Classic Filipino soft bread with premium toppings.</p>
+
+                <select id="ensaymadaFlavor" onchange="changeEnsaymadaImage()">
+                    <option value="classic" selected>Classic Cheese</option>
+                    <option value="chocolate">Chocolate</option>
+                    <option value="strawberry">Strawberry</option>
+                    <option value="blueberry">Blueberry</option>
+                    <option value="ube">Ube</option>
+                    <option value="mango">Mango</option>
+                </select>
+
+                <div class="quantity">
+                    <label>Quantity</label>
+                    <input type="number" id="ensaymadaQty" value="1" min="1">
+                </div>
+
+                <div class="price">
+                    <h4>₱55</h4>
+                </div>
+
+                <button onclick="addEnsaymada()">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- SWISS ROLL -->
+        <div class="product">
+            <img src="images/swiss-roll.jpg" alt="Swiss Roll">
+
+            <div class="product-content">
+                <div class="category-title">Cake Rolls</div>
+
+                <h3>🍰 Swiss Roll</h3>
+
+                <p>Light sponge cake filled with smooth cream filling.</p>
+
+                <select id="swissFlavor">
+                    <option>Vanilla</option>
+                    <option>Chocolate</option>
+                    <option>Strawberry</option>
+                    <option>Mango</option>
+                    <option>Ube</option>
+                    <option>Mocha</option>
+                </select>
+
+                <div class="quantity">
+                    <label>Quantity</label>
+                    <input type="number" id="swissQty" value="1" min="1">
+                </div>
+
+                <div class="price">
+                    <h4>₱160</h4>
+                </div>
+
+                <button onclick="addSwiss()">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- SALT BREAD -->
+        <div class="product">
+            <img src="images/salt-bread.jpg" alt="Korean Salt Bread">
+
+            <div class="product-content">
+                <div class="category-title">Artisan Bread</div>
+
+                <h3>🥖 Korean Salt Bread</h3>
+
+                <p>Premium butter bread with a light sea salt finish.</p>
+
+                <div class="quantity">
+                    <label>Quantity</label>
+                    <input type="number" id="saltQty" value="1" min="1">
+                </div>
+
+                <div class="price">
+                    <h4>₱55</h4>
+                </div>
+
+                <button onclick="addSalt()">Add to Cart</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= BEST SELLERS ================= -->
+
+<section class="best-sellers">
+
+    <h2>⭐ Customer Favorites</h2>
+    <div class="divider"></div>
+
+    <div class="best-grid">
+        <div class="best-item">🎂 Customized Cakes</div>
+        <div class="best-item">🍩 Chocolate Donut</div>
+        <div class="best-item">🧈 Ensaymada</div>
+        <div class="best-item">🥖 Korean Salt Bread</div>
+    </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+
+<section id="gallery">
+
+    <h2>📸 Our Bakery Gallery</h2>
+    <div class="divider"></div>
+
+    <div class="gallery-grid">
+        <img src="images/chocolate-donut.jpg" alt="Donut">
+        <img src="images/ensaymada.jpg" alt="Ensaymada">
+        <img src="images/swiss-roll.jpg" alt="Swiss Roll">
+        <img src="images/salt-bread.jpg" alt="Salt Bread">
+    </div>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+
+<section class="reviews">
+
+    <h2>❤️ What Our Customers Say</h2>
+    <div class="divider"></div>
+
+    <div class="review-grid">
+
+        <div class="review">
+            <p>"The customized cake exceeded our expectations!"</p>
+            <span>★★★★★</span>
+        </div>
+
+        <div class="review">
+            <p>"Softest ensaymada I've ever tasted."</p>
+            <span>★★★★★</span>
+        </div>
+
+        <div class="review">
+            <p>"Our family keeps ordering the chocolate donuts!"</p>
+            <span>★★★★★</span>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= CART SIDEBAR ================= -->
+
+<div id="cartSidebar" class="cart-sidebar">
+
+    <div class="cart-header">
+        <h3>🛒 Your Order</h3>
+        <button id="closeCart">✕</button>
+    </div>
+
+    <div id="cart-items">
+        <p>Your cart is empty.</p>
+    </div>
+
+    <div class="cart-footer">
+        <h3>Total: ₱<span id="total">0</span></h3>
+
+        <button id="checkout" class="button full">
+            Checkout via Messenger
+        </button>
+    </div>
+</div>
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+    <h2>📍 Contact Us</h2>
+    <div class="divider"></div>
+
+    <div class="contact-grid">
+
+        <div>
+            <h3>Facebook</h3>
+            <a href="https://www.facebook.com/majai42" target="_blank">
+                facebook.com/majai42
+            </a>
+        </div>
+
+        <div>
+            <h3>Business Hours</h3>
+            <p>Daily • 8:00 AM – 8:00 PM</p>
+        </div>
+
+        <div>
+            <h3>Service</h3>
+            <p>Pickup • Delivery • Customized Orders</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+    <p>© 2026 Majai Pastries • Made Fresh. Made Beautiful. Made for Every Celebration.</p>
+</footer>
+
+<!-- Floating Messenger Button -->
+<a href="https://www.facebook.com/majai42"
+   target="_blank"
+   class="messenger-float">
+   💬
+</a>
+
+<script src="script.js"></script>
+
+</body>
+</html>
